@@ -1,0 +1,50 @@
+{
+    "name": "Ekansh Jain",
+    "roll_no": "25b0651",
+    "seed": 42,
+    "training_setup": {
+        "optimizer": "SGD",
+        "learning_rate_schedule": "CosineAnnealingLR",
+        "batch_size": 128,
+        "epochs": 60,
+        "augmentation": "RandomCrop + RandomHorizontalFlip",
+        "gpu_used": "Tesla T4"
+    },
+    "task1": {
+        "noise_rate": 40.242222222222225,
+        "val_acc_noisy_labels__clean_ref_model": 59.0,
+        "val_acc_noisy_labels__noisy_ce_model": 48.86
+    },
+    "task2": {
+        "memorization_start_epoch": 33,
+        "early_stop_epoch": 46,
+        "val_acc_noisy_labels_at_early_stop": 55.60000000000001
+    },
+    "task3": {
+        "method": "Cross-Entropy Loss at Early Stopping Epoch"
+    },
+    "task4": {
+        "methods": [
+            {
+                "name": "LabelSmoothing",
+                "file": "t4_LabelSmoothing.csv",
+                "val_acc_noisy_labels": 49.94
+            },
+            {
+                "name": "TTA_Dynamic_Relabeling",
+                "file": "t4_TTA_Dynamic_Relabeling.csv",
+                "val_acc_noisy_labels": 55.7
+            },
+            {
+                "name": "Symmetric_Cross_Entropy",
+                "file": "t4_SCE.csv",
+                "val_acc_noisy_labels": 57.16
+            }
+        ],
+        "best_method": "Symmetric_Cross_Entropy"
+    },
+    "task5": {
+        "val_acc_synthetic_labels__baseline": 69.72,
+        "val_acc_synthetic_labels__best_method": 87.28
+    }
+}
